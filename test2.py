@@ -21,6 +21,7 @@ y_index = 0
 #formatter to label the colorbar with correct names
 formatter = plt.FuncFormatter(lambda i, *args: iris.target_names[int(i)])
 
+#compare first and second features
 plt.scatter(iris.data[:, x_index], iris.data[:, y_index], c = iris.target)
 plt.colorbar(ticks = [0,1,2], format = formatter)
 plt.xlabel(iris.feature_names[x_index])
