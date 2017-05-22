@@ -41,12 +41,13 @@ plt.legend(loc = 'best')
 plt.title('Testing prediction')
 plt.show()
 
+
 print(regressor.score(X_test, y_test))
 
 # KNeighborsRegression
 from sklearn.neighbors import KNeighborsRegressor
 knn = KNeighborsRegressor(n_neighbors = 1)
-y_pred_train = knn.fit(X_train, y_train)
+knn.fit(X_train, y_train)
 
 # predict using training dataset and plot
 y_pred_train = knn.predict(X_train)
@@ -67,5 +68,24 @@ plt.show()
 print(knn.score(X_train, y_train))
 print(knn.score(X_test, y_test))
 
+
+
+# analyze boston housing data using regression
+from sklearn.datasets import load_boston
+boston = load_boston()
+X_train, X_test, y_train, y_test = train_test_split(boston.data, boston.target)
+regressor.fit(X_train, y_train)
+
+
+print(regressor.score(X_train, y_train))
+print(regressor.score(X_test, y_test))
+
+# analyze using KNN regression
+knn = KNeighborsRegressor(n_neighbors = 3)
+knn.fit(X_train, y_train)
+
+
+print(knn.score(X_train, y_train))
+print(knn.score(X_test, y_test))
 
 
